@@ -1,14 +1,37 @@
-# Windows
+# Windows 系统文件
 [Dd]esktop.ini
 Thumbs.db
 $RECYCLE.BIN/
 
-# macOS
+# macOS 系统文件
 .DS_Store
 .fseventsd
 .Spotlight-V100
 .TemporaryItems
 .Trashes
 
-# Node.js
+# Node.js 依赖
 node_modules/
+npm-debug.log
+yarn-error.log
+
+# 微信开发者工具生成文件
+project.private.config.json  # 本地个性化配置
+unpackage/                  # 编译产物
+dist/                       # 自定义构建目录
+*.wxssmap                   # 样式映射文件
+*.wxsmap                    # 脚本映射文件
+
+# IDE 和编辑器配置
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 自定义日志和缓存
+logs/
+*.log
+*.cache
