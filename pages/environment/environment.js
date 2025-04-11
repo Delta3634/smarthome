@@ -1,8 +1,8 @@
 // pages/environment/environment.js
 Page({
-    data: {
-      temp: 25.5,
-      humidity: 60,
+    data: { 
+      temperature: "0", 
+      humidity: "0",
       co2: 600,
       pm25: 12,
       noise: 45,
@@ -10,32 +10,48 @@ Page({
       pressure: 1013,
       light: 300
     },
-  
-    onLoad() {
-      this.fetchData();//真实数据获取
-      this.startMockUpdate()//mock数据更新（仅用于测试其他参数）
+    onLoad: function() {
+      this.fetchData();
+      // 每隔5秒调用一次fetchData函数
+      this.dataUpdateInterval = setInterval(() => {
+        this.fetchData();
+      }, 5000);
     },
-  
-    startMockUpdate() {
-      this.timer = setInterval(() => {
-        this.updateData()
-      }, 2000)
+    fetchData() {
+      wx.request({
+        url: 'http://172.20.10.14:80/data', // 替换为实际的后端接口地址
+        method: 'GET',
+        success: (res) => {
+          if (res.statusCode === 200) {
+            const { temperature, humidity } = res.data;
+            if (temperature === "传感器数据读取失败" || humidity === "传感器数据读取失败") {
+              wx.showToast({
+                title: '传感器数据读取失败',
+                icon: 'none'
+              });
+            } else {
+              this.setData({
+                temperature: Number(temperature),  
+                humidity: Number(humidity)  
+              });
+            }
+          } else {
+            wx.showToast({
+              title: '请求失败',
+              icon: 'none'
+            });
+          }
+        },
+        fail: (err) => {
+          wx.showToast({
+            title: '请求失败',
+            icon: 'none'
+          });
+        }
+      });
     },
-  
-    updateData() {
-      this.setData({
-        temp: (Math.random() * 15 + 20).toFixed(1),
-        humidity: (Math.random() * 40 + 30).toFixed(0),
-        co2: Math.floor(Math.random() * 600 + 400),
-        pm25: Math.floor(Math.random() * 50),
-        noise: Math.floor(Math.random() * 20 + 40),
-        hcho: (Math.random() * 0.1).toFixed(2),
-        pressure: Math.floor(Math.random() * 20 + 1000),
-        light: Math.floor(Math.random() * 1000 + 50)
-      })
-    },
-  
-    onUnload() {
-      clearInterval(this.timer)
+    onUnload: function() {
+      // 页面卸载时清除定时器
+      clearInterval(this.dataUpdateInterval);
     }
   })
