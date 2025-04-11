@@ -1,0 +1,39 @@
+/* pages/environment/environment.wxss */
+.container {
+    padding: 20rpx;
+  }
+  
+  .sensor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20rpx;
+  }
+  
+  .sensor-item {
+    background: white;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+  }
+  
+  .label {
+    font-size: 28rpx;
+    color: #666;
+    display: block;
+    margin-bottom: 10rpx;
+  }
+  
+  .value {
+    font-size: 36rpx;
+    font-weight: bold;
+  }
+  
+  /* 不同传感器的颜色区分 */
+  .temperature { border-left: 8rpx solid #f56c6c; }
+  .humidity { border-left: 8rpx solid #409eff; }
+  .co2 { border-left: 8rpx solid #67c23a; }
+  .pm25 { border-left: 8rpx solid #909399; }
+  .noise { border-left: 8rpx solid #e6a23c; }
+  .formaldehyde { border-left: 8rpx solid #b37feb; }
+  .pressure { border-left: 8rpx solid #ff85c0; }
+  .light { border-left: 8rpx solid #fdd835; }

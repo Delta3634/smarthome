@@ -1,0 +1,54 @@
+.container {
+    padding: 20rpx;
+  }
+  
+  .title {
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+    display: block;
+  }
+  
+  .data-card, .control-card, .ai-card {
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+  }
+  
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15rpx 0;
+    font-size: 32rpx;
+  }
+  
+  .device-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #eee;
+  }
+  
+  .suggestion {
+    color: #f56c6c;
+    font-size: 32rpx;
+    line-height: 1.6;
+  }
+  /* index.wxss 新增样式 */
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx;
+    margin-top: 40rpx;
+  }
+  
+  .nav-btn {
+    background: #2d8cf0;
+    color: white;
+    padding: 20rpx;
+    border-radius: 12rpx;
+    text-align: center;
+  }

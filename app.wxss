@@ -1,0 +1,25 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+/* app.wxss */
+/* 调整底部导航栏文字大小 */
+.tabbar-item__text {
+    font-size: 24rpx !important;
+  }
+  
+  /* 增加文字与边框的间距 */
+  .tabbar-item {
+    padding: 16rpx 0 !important;
+  }
+  
+  /* 隐藏原生图标占位区域 */
+  .tabbar-item__icon {
+    display: none !important;
+  }

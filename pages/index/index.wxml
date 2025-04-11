@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="data-card">
+    <text class="title">环境监测</text>
+    <view class="data-row">
+      <text>温度：{{temp}}℃</text>
+      <text>湿度：{{humidity}}%</text>
+    </view>
+    <view class="data-row">
+      <text>光照：{{light}}lux</text>
+      <text>PM2.5：{{pm25}}μg/m³</text>
+    </view>
+  </view>
+
+  <view class="control-card">
+    <text class="title">设备控制</text>
+    <view class="device-list">
+      <block wx:for="{{devices}}" wx:key="id">
+        <view class="device-item">
+          <text>{{item.name}}</text>
+          <switch checked="{{item.status}}" bindchange="toggleDevice" data-id="{{item.id}}"/>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="ai-card" wx:if="{{suggestion}}">
+    <text class="title">AI建议</text>
+    <text class="suggestion">{{suggestion}}</text>
+  </view>
+</view>

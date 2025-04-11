@@ -1,0 +1,7 @@
+<!-- pages/history/history.wxml -->
+<view class="container">
+  <view class="chart-container">
+    <text class="title">过去24小时温度变化</text>
+    <canvas canvas-id="tempChart" class="chart"></canvas>
+  </view>
+</view>

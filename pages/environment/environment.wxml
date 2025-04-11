@@ -1,0 +1,37 @@
+<!-- pages/environment/environment.wxml -->
+<view class="container">
+  <view class="sensor-grid">
+    <view class="sensor-item temperature">
+      <text class="label">温度</text>
+      <text class="value">{{temp}}℃</text>
+    </view>
+    <view class="sensor-item humidity">
+      <text class="label">湿度</text>
+      <text class="value">{{humidity}}%</text>
+    </view>
+    <view class="sensor-item co2">
+      <text class="label">CO₂</text>
+      <text class="value">{{co2}}ppm</text>
+    </view>
+    <view class="sensor-item pm25">
+      <text class="label">PM2.5</text>
+      <text class="value">{{pm25}}μg/m³</text>
+    </view>
+    <view class="sensor-item noise">
+      <text class="label">噪音</text>
+      <text class="value">{{noise}}dB</text>
+    </view>
+    <view class="sensor-item formaldehyde">
+      <text class="label">甲醛</text>
+      <text class="value">{{hcho}}mg/m³</text>
+    </view>
+    <view class="sensor-item pressure">
+      <text class="label">气压</text>
+      <text class="value">{{pressure}}hPa</text>
+    </view>
+    <view class="sensor-item light">
+      <text class="label">光照</text>
+      <text class="value">{{light}}lux</text>
+    </view>
+  </view>
+</view>
