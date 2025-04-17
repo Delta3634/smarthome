@@ -1,0 +1,19 @@
+<!--pages/pm25/pm25.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="back" bindtap="goBack">
+            <text class="iconfont icon-back"></text>
+        </view>
+        <text class="title">PM2.5 详情</text>
+    </view>
+    <view class="pm25-display">
+        <text class="pm25-value">{{pm25}}μg/m³</text>
+        <text class="pm25-status {{isInRange ? 'status-good' : 'status-bad'}}">{{pm25Status}}</text>
+    </view>
+    <view class="pm25-advice">
+        <text>{{pm25Advice}}</text>
+    </view>
+    <view class="control-panel">
+        <button class="control-button" bindtap="turnOnAirPurifier">开启空气净化器</button>
+    </view>
+</view>    

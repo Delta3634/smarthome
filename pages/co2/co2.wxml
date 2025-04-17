@@ -1,0 +1,19 @@
+<!--pages/co2/co2.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="back" bindtap="goBack">
+            <text class="iconfont icon-back"></text>
+        </view>
+        <text class="title">二氧化碳详情</text>
+    </view>
+    <view class="co2-display">
+        <text class="co2-value">{{co2}}ppm</text>
+        <text class="co2-status {{isInRange ? 'status-good' : 'status-bad'}}">{{co2Status}}</text>
+    </view>
+    <view class="co2-advice">
+        <text>{{co2Advice}}</text>
+    </view>
+    <view class="control-panel">
+        <button class="control-button" bindtap="increaseVentilation">加强通风</button>
+    </view>
+</view>    

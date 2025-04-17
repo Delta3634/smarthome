@@ -1,0 +1,20 @@
+<!--pages/light/light.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="back" bindtap="goBack">
+            <text class="iconfont icon-back"></text>
+        </view>
+        <text class="title">光照详情</text>
+    </view>
+    <view class="light-display">
+        <text class="light-value">{{light}}lux</text>
+        <text class="light-status {{isInRange ? 'status-good' : 'status-bad'}}">{{lightStatus}}</text>
+    </view>
+    <view class="light-advice">
+        <text>{{lightAdvice}}</text>
+    </view>
+    <view class="control-panel">
+        <button class="control-button" bindtap="turnOnLight">打开灯光</button>
+        <button class="control-button" bindtap="adjustLight">调整亮度</button>
+    </view>
+</view>    

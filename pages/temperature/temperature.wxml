@@ -1,0 +1,20 @@
+<!--pages/temperature/temperature.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="back" bindtap="goBack">
+            <text class="iconfont icon-back"></text>
+        </view>
+        <text class="title">温度详情</text>
+    </view>
+    <view class="temp-display">
+        <text class="temp-value">{{temp}}℃</text>
+        <text class="temp-status {{isInRange ? 'status-good' : 'status-bad'}}">{{tempStatus}}</text>
+    </view>
+    <view class="temp-advice">
+        <text>{{tempAdvice}}</text>
+    </view>
+    <view class="control-panel">
+        <button class="control-button" bindtap="increaseTemp">升温</button>
+        <button class="control-button" bindtap="decreaseTemp">降温</button>
+    </view>
+</view>   

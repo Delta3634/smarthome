@@ -1,34 +1,40 @@
 {
-    "pages": [
-      "pages/index/index",
-      "pages/environment/environment",
-      "pages/history/history"
-    ],
-    "window": {
-      "navigationBarTitleText": "智能家居控制中心",
-      "navigationBarBackgroundColor": "#2d8cf0",
-      "navigationBarTextStyle": "white"
-    },
-    "tabBar": {
-      "color": "#666",
-      "selectedColor": "#2d8cf0",
-      "backgroundColor": "#ffffff",
-      "borderStyle": "white",
-      "list": [
-        {
-          "pagePath": "pages/index/index",
-          "text": "设备控制"
-        },
-        {
-          "pagePath": "pages/environment/environment",
-          "text": "环境监测"
-        },
-        {
-          "pagePath": "pages/history/history",
-          "text": "历史记录"
-        }
-      ]
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json"
-  }
+  "pages": [
+    "pages/index/index",
+    "pages/environment/environment",
+    "pages/history/history",
+    "pages/temperature/temperature.js",
+    "pages/temperature/temperature",
+    "pages/humidity/humidity",
+    "pages/co2/co2",
+    "pages/pm25/pm25",
+    "pages/light/light"
+  ],
+  "window": {
+    "navigationBarTitleText": "智能家居控制中心",
+    "navigationBarBackgroundColor": "#2d8cf0",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#2d8cf0",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "设备控制"
+      },
+      {
+        "pagePath": "pages/environment/environment",
+        "text": "环境监测"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史记录"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

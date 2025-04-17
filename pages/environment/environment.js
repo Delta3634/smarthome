@@ -1,57 +1,74 @@
 // pages/environment/environment.js
 Page({
-    data: { 
-      temperature: "0", 
-      humidity: "0",
-      co2: 600,
-      pm25: 12,
-      noise: 45,
-      hcho: 0.08,
-      pressure: 1013,
-      light: 300
+    data: {
+        temp: 25.5,
+        humidity: 60,
+        co2: 600,
+        pm25: 12,
+        noise: 45,
+        hcho: 0.08,
+        pressure: 1013,
+        light: 300
     },
-    onLoad: function() {
-      this.fetchData();
-      // 每隔5秒调用一次fetchData函数
-      this.dataUpdateInterval = setInterval(() => {
-        this.fetchData();
-      }, 5000);
+
+    onLoad() {
+        this.startMockUpdate()
     },
-    fetchData() {
-      wx.request({
-        url: 'http://172.20.10.14:80/data', // 替换为实际的后端接口地址
-        method: 'GET',
-        success: (res) => {
-          if (res.statusCode === 200) {
-            const { temperature, humidity } = res.data;
-            if (temperature === "传感器数据读取失败" || humidity === "传感器数据读取失败") {
-              wx.showToast({
-                title: '传感器数据读取失败',
-                icon: 'none'
-              });
-            } else {
-              this.setData({
-                temperature: Number(temperature),  
-                humidity: Number(humidity)  
-              });
-            }
-          } else {
-            wx.showToast({
-              title: '请求失败',
-              icon: 'none'
-            });
-          }
-        },
-        fail: (err) => {
-          wx.showToast({
-            title: '请求失败',
-            icon: 'none'
-          });
-        }
-      });
+
+    startMockUpdate() {
+        this.timer = setInterval(() => {
+            this.updateData()
+        }, 2000)
     },
-    onUnload: function() {
-      // 页面卸载时清除定时器
-      clearInterval(this.dataUpdateInterval);
+
+    updateData() {
+        this.setData({
+            temp: (Math.random() * 15 + 20).toFixed(1),
+            humidity: (Math.random() * 40 + 30).toFixed(0),
+            co2: Math.floor(Math.random() * 600 + 400),
+            pm25: Math.floor(Math.random() * 50),
+            noise: Math.floor(Math.random() * 20 + 40),
+            hcho: (Math.random() * 0.1).toFixed(2),
+            pressure: Math.floor(Math.random() * 20 + 1000),
+            light: Math.floor(Math.random() * 1000 + 50)
+        })
+    },
+
+    onUnload() {
+        clearInterval(this.timer)
+    },
+
+    // 跳转到温度详情页面
+    goToTemperaturePage() {
+        wx.navigateTo({
+            url: '/pages/temperature/temperature?temp=' + this.data.temp
+        })
+    },
+    // 跳转到湿度详情页面
+    goToHumidityPage() {
+        wx.navigateTo({
+           url: '/pages/humidity/humidity?humidity=' + this.data.humidity
+        })
+    },
+
+// 跳转到二氧化碳详情页面
+    goToCo2Page() {
+        wx.navigateTo({
+            url: '/pages/co2/co2?co2=' + this.data.co2
+        })
+    },
+    // 跳转到 PM2.5 详情页面
+    goToPm25Page() {
+        wx.navigateTo({
+            url: '/pages/pm25/pm25?pm25=' + this.data.pm25
+        })
+    },
+
+// 跳转到光照详情页面
+    goToLightPage() {
+        wx.navigateTo({
+            url: '/pages/light/light?light=' + this.data.light
+        })
     }
-  })
+})    
+

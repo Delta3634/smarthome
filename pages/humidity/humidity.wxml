@@ -1,0 +1,20 @@
+<!--pages/humidity/humidity.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="back" bindtap="goBack">
+            <text class="iconfont icon-back"></text>
+        </view>
+        <text class="title">湿度详情</text>
+    </view>
+    <view class="humidity-display">
+        <text class="humidity-value">{{humidity}}%</text>
+        <text class="humidity-status {{isInRange ? 'status-good' : 'status-bad'}}">{{humidityStatus}}</text>
+    </view>
+    <view class="humidity-advice">
+        <text>{{humidityAdvice}}</text>
+    </view>
+    <view class="control-panel">
+        <button class="control-button" bindtap="increaseHumidity">增加湿度</button>
+        <button class="control-button" bindtap="decreaseHumidity">降低湿度</button>
+    </view>
+</view>
